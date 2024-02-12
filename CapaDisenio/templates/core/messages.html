@@ -1,0 +1,36 @@
+{% load static %}
+
+{% if messages %}
+<div id="messages">
+
+    <ul class="messages">
+        {% for message in messages %}
+        
+        {% comment %} <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li> {% endcomment %}
+        <div class="toast-container position-fixed bottom-0 end-0 p-3" >
+
+          <div role="alert" aria-live="assertive" aria-atomic="true" id="toaste_message" class="toast fade" data-bs-autohide="true" data-bs-delay="3000">
+              <div class="toast-header bg-{{ message.tags }}">
+                <img src="{% static '/img/logo_min_dev_coders.svg' %}" class="rounded me-2" style="width:2rem; height:2.5rem;" alt="Dev coders logo">
+                <strong class="me-auto">Notificación</strong>
+                <small>Ahora</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body rounded ">
+                  {{message}}
+              </div>
+          </div>        
+       
+      </div>
+        {% endfor %}
+    </ul>
+    
+    
+    {% endif %}
+
+</div>
+
+<script src="{% static 'js/toasts.js' %}">     
+   
+</script>
+

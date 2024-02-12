@@ -1,0 +1,21 @@
+{% extends "core/base.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+    <form class = "bg-light p-5   rounded shadow " action="" method="POST">
+        {% csrf_token %}
+
+        <div class="row" >
+            {% bootstrap_field frm.id %}
+            {% bootstrap_field frm.descripcion %}
+            {% bootstrap_field frm.tipo_producto %}
+            {% bootstrap_field frm.precio %}
+        </div>
+
+        
+
+        <div class = "text-end">
+            <button  class ="btn btn-success" type="submit"> Guardar</button>
+        </div>
+    </form>
+{% endblock content %}
